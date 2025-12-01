@@ -218,31 +218,51 @@
 		</dependency>
 	</dependencies>
 
-<dependency>
-    <!-- MongoDB -->
-    
- <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-mongodb</artifactId>
-        </dependency>
+<dependencies>
 
-    <!-- Mantener las demás dependencias existentes -->
+    <!-- Tests -->
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-webservices-test</artifactId>
+        <scope>test</scope>
+    </dependency>
+
+    <!-- MongoDB -->
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-data-mongodb</artifactId>
+    </dependency>
+
+    <!-- MySQL -->
+    <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>8.0.33</version>
+        <scope>runtime</scope>
+    </dependency>
+
+    <!-- Web -->
     <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
-    
+
+    <!-- Lombok -->
     <dependency>
         <groupId>org.projectlombok</groupId>
         <artifactId>lombok</artifactId>
         <optional>true</optional>
     </dependency>
-    
+
+    <!-- Security -->
     <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-security</artifactId>
     </dependency>
-</dependency>
+
+</dependencies>
+
+
 
 	<dependencyManagement>
 		<dependencies>
