@@ -3,12 +3,11 @@
 # ====================
 FROM maven:3.9.6-eclipse-temurin-21 AS build
 
-
 WORKDIR /app
 
 # Copiar archivos de Maven
-COPY pom.xml .
-COPY mvnw .
+COPY pom.xml . 
+COPY mvnw . 
 COPY .mvn .mvn
 
 # Descargar dependencias
@@ -34,4 +33,4 @@ COPY --from=build /app/target/*.jar app.jar
 EXPOSE 8080
 
 # Ejecutar aplicación
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java","-jar","app.jar"]
