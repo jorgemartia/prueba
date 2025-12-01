@@ -29,7 +29,7 @@ WORKDIR /app
 # Copiar JAR compilado
 COPY --from=build /app/target/*.jar app.jar
 
-# Exponer puerto (Render usa $PORT)
+# Exponer puerto
 EXPOSE 8080
 
 # Ejecutar la app (la URI se pasará en runtime)
