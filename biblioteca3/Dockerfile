@@ -29,13 +29,8 @@ WORKDIR /app
 # Copiar JAR compilado
 COPY --from=build /app/target/*.jar app.jar
 
-# ====================
-# PASO CLAVE: DEFINIR LA URI DE MONGODB COMO ENV
-# ====================
-ENV MONGODB_URI="mongodb+srv://jarmandomartinez_db_user:jorgebased123@biblioteca.socaz6k.mongodb.net/biblioteca?retryWrites=true&w=majority"
-
 # Exponer puerto (Render usa $PORT)
 EXPOSE 8080
 
-# Ejecutar aplicación
+# Ejecutar la app (la URI se pasará en runtime)
 ENTRYPOINT ["java", "-jar", "app.jar"]
