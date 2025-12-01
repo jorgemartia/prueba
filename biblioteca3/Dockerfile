@@ -6,8 +6,8 @@ FROM maven:3.9.6-eclipse-temurin-21 AS build
 WORKDIR /app
 
 # Copiar archivos de Maven
-COPY pom.xml . 
-COPY mvnw . 
+COPY pom.xml .
+COPY mvnw .
 COPY .mvn .mvn
 
 # Descargar dependencias
@@ -29,8 +29,13 @@ WORKDIR /app
 # Copiar JAR compilado
 COPY --from=build /app/target/*.jar app.jar
 
+# ====================
+# PASO CLAVE: DEFINIR LA URI DE MONGODB COMO ENV
+# ====================
+ENV MONGODB_URI="mongodb+srv://jarmandomartinez_db_user:jorgebased123@biblioteca.socaz6k.mongodb.net/biblioteca?retryWrites=true&w=majority"
+
 # Exponer puerto (Render usa $PORT)
 EXPOSE 8080
 
 # Ejecutar aplicación
-ENTRYPOINT ["java","-jar","app.jar"]
+ENTRYPOINT ["java", "-jar", "app.jar"]
